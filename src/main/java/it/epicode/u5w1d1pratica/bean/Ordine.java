@@ -15,7 +15,7 @@ public class Ordine {
     private int numCoperti;
     private StatoOrdine statoOrdine;
 
-    private it.epicode.u5w1d2pratica.bean.Tavolo tavolo;
+    private it.epicode.u5w1d1pratica.bean.Tavolo tavolo;
 
     private List<Prodotto> prodotti;
 
