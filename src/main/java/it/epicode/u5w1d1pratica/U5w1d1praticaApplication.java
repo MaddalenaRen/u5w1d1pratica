@@ -18,7 +18,7 @@ public class U5w1d1praticaApplication {
 		// serve per accedere al contesto di Spring
 		AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(AppConfig.class);
 
-		Drink water = ctx.getBean(Drink.class); // dal contesto fatti dare un Bean di tipo Drink
+		Drink water = ctx.getBean("cocaCola", Drink.class); // dal contesto fatti dare un Bean di tipo Drink
 
 		System.out.println(water);
 

@@ -6,13 +6,16 @@ import it.epicode.u5w1d1pratica.bean.Tavolo;
 import it.epicode.u5w1d1pratica.bean.Topping;
 import it.epicode.u5w1d1pratica.enumaration.StatoTavolo;
 import it.epicode.u5w1d1pratica.enumaration.TipoDrink;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
+import org.springframework.context.annotation.PropertySource;
 
 import java.util.List;
 
 @Configuration//classe di configurazione, spring la utilizza per configurae il cntesto
+@PropertySource("application.properties")
 public class AppConfig {
 
     @Bean("water")//serve per far capire a Spring che questo metodo
@@ -86,21 +89,21 @@ public class AppConfig {
     }
 
     @Bean("t1")
-    public Tavolo getTavolo1(){
+    public Tavolo getTavolo1(@Value("${tavolo1.coperto}") double costoCoperto){
         Tavolo t1 = new Tavolo();
-        t1.setCostoCoperto(1.5);
+        t1.setCostoCoperto(costoCoperto);
         t1.setStatoTavolo(StatoTavolo.LIBERO);
         t1.setNumero(1);
         t1.setNumeroMaxCoperti(6);
         return t1;
     }
     @Bean("t2")
-    public Tavolo getTavolo2(){
+    public Tavolo getTavolo2(@Value("${tavolo2.coperto}") double costoCoperto){
         Tavolo t2 = new Tavolo();
         t2.setNumero(2);
         t2.setNumeroMaxCoperti(4);
         t2.setStatoTavolo(StatoTavolo.LIBERO);
-        t2.setCostoCoperto(2);
+        t2.setCostoCoperto(costoCoperto);
         return t2;
     }
 }
