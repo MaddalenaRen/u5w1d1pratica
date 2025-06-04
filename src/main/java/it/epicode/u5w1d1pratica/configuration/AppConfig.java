@@ -15,7 +15,9 @@ import java.util.List;
 @Configuration//classe di configurazione, spring la utilizza per configurae il cntesto
 public class AppConfig {
 
-    @Bean //con @Bean salviamo l'oggetto nel contesto di Spring
+    @Bean("water")//serve per far capire a Spring che questo metodo
+    //deve essere chiamato automaticamente da Spring e che
+    //l'oggetto restituito deve essere salvato nel container di Spring
     public Drink getWater(){
         Drink water = new Drink();
         water.setTipoDrink(TipoDrink.ANALCOLICO);
@@ -24,8 +26,9 @@ public class AppConfig {
         water.setNome("Water");
         return water;
     }
-    @Primary
-    @Bean(name =" tomato")
+
+    @Bean(name = "tomato")
+    @Primary//serve per dare precedenza a questo bean nel caso ce ne siano più di uno dello stesso tipo
     public Topping getTomato(){
         Topping tomato = new Topping();
         tomato.setNome("Tomato");
@@ -38,8 +41,8 @@ public class AppConfig {
     @Bean(name = "mozzarella")
     public Topping getMozzarella(){
         Topping mozzarella = new Topping();
-        mozzarella.setPrezzo(1);
         mozzarella.setNome("Mozzarella");
+        mozzarella.setPrezzo(1);
         mozzarella.setCalorie(200);
         mozzarella.setGlutenfree(true);
         return mozzarella;
