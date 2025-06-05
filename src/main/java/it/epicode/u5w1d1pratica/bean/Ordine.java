@@ -1,7 +1,7 @@
 package it.epicode.u5w1d1pratica.bean;
 
 import it.epicode.u5w1d1pratica.enumaration.StatoOrdine;
-import jakarta.persistence.Entity;
+import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -12,13 +12,26 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 public class Ordine {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int numOrdine;
     private LocalTime oraOrdine;
+
     private int numCoperti;
+
     private StatoOrdine statoOrdine;
 
-    private it.epicode.u5w1d1pratica.bean.Tavolo tavolo;
+    @ManyToOne
+    @JoinColumn(name = "tavolo_id")
+    private Tavolo tavolo;
 
+    @ManyToMany
+    @JoinTable(
+            name = "ordine_prodotto",
+            joinColumns = @JoinColumn(name = "ordine_id"),
+            inverseJoinColumns = @JoinColumn(name = "prodotto_id")
+    )
     private List<Prodotto> prodotti;
 
     public double totaleOrdine() {

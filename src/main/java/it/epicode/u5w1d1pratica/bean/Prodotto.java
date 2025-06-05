@@ -6,8 +6,10 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
+import java.awt.*;
+
 @Entity
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@Inheritance(strategy = InheritanceType.JOINED)
 @DiscriminatorColumn(name = "PRODOTTI", discriminatorType = DiscriminatorType.STRING)
 @Data
 @NoArgsConstructor
@@ -15,8 +17,10 @@ import lombok.ToString;
 public abstract class Prodotto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private int id;
     private String nome;
     private double prezzo;
     private int calorie;
+
+
 }

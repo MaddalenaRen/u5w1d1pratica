@@ -17,5 +17,6 @@ import lombok.ToString;
 @ToString(callSuper = true) // serve a chiamare il ToSTring della superclasse
 public class Drink extends Prodotto {
     @Enumerated(EnumType.STRING)
+
     private TipoDrink tipoDrink;
 }

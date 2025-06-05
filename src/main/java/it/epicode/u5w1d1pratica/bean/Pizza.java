@@ -1,8 +1,6 @@
 package it.epicode.u5w1d1pratica.bean;
 
-import jakarta.persistence.DiscriminatorValue;
-import jakarta.persistence.Entity;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
@@ -15,6 +13,8 @@ import java.util.List;
 @NoArgsConstructor
 @ToString(callSuper = true)
 public class Pizza extends Prodotto{
-    @OneToMany(mappedBy = "pizza")
+
+    @ManyToMany(mappedBy = "pizze", fetch = FetchType.EAGER)
     private List<Topping> toppings;
+
 }

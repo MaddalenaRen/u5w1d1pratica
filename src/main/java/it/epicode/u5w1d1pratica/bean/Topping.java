@@ -1,12 +1,11 @@
 package it.epicode.u5w1d1pratica.bean;
 
-import jakarta.persistence.DiscriminatorValue;
-import jakarta.persistence.Entity;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
+
+import java.util.List;
 
 @Entity
 @DiscriminatorValue("TOPPINGS")
@@ -16,8 +15,12 @@ import lombok.ToString;
 public class Topping extends Prodotto{
     private boolean glutenfree;
 
-    @ManyToOne
-    @JoinColumn(name = "pizza_id")
-    private Pizza pizza;
+
+
+    @ManyToMany
+    @JoinTable(name = "topping_pizza",
+            joinColumns = @JoinColumn(name = "topping_id"),
+            inverseJoinColumns = @JoinColumn(name = "pizza_id"))
+    private List<Pizza> pizze;
 
 }

@@ -18,18 +18,18 @@ public class U5w1d1praticaApplication {
 		// serve per accedere al contesto di Spring
 		AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(AppConfig.class);
 
-		Drink water = ctx.getBean("cocaCola", Drink.class); // dal contesto fatti dare un Bean di tipo Drink
+		//Drink water = ctx.getBean("cocaCola", Drink.class); // dal contesto fatti dare un Bean di tipo Drink
 
-		System.out.println(water);
+		//System.out.println(water);
 
-		Topping t1 = ctx.getBean("mozzarella", Topping.class);
+		//Topping t1 = ctx.getBean("mozzarella", Topping.class);
 		// avendo più topping non sa quale scegliere e va in errore
 		 // possiamo aggiungere la annotazione @primary per dare la priorità a quel bean
 		// può esserci solo un primary
 		//un'altra modalitò è quella di dare un nome al bean così si ha una possibilità in più
 		// per distinguerli
 
-		System.out.println(t1);
+		//System.out.println(t1);
 	}
 
 }

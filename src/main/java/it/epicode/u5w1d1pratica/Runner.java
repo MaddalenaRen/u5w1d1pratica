@@ -2,6 +2,7 @@ package it.epicode.u5w1d1pratica;
 
 import it.epicode.u5w1d1pratica.bean.*;
 import it.epicode.u5w1d1pratica.configuration.AppConfig;
+import it.epicode.u5w1d1pratica.configuration.MenuConfig;
 import it.epicode.u5w1d1pratica.enumaration.StatoOrdine;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
@@ -12,7 +13,7 @@ import java.time.LocalTime;
 import java.util.List;
 
 
-@Component//serve per permettere a Spring di gestire completamente la classe
+//@Component//serve per permettere a Spring di gestire completamente la classe
 //tutte le classi con Component vengono istanziate direttamente da Spring e gli
 //oggetti creati vengono salvati nel contesto
 @Order(1)//deve essere il primo runner ad essere lanciato
@@ -24,8 +25,8 @@ public class Runner implements CommandLineRunner {
         AnnotationConfigApplicationContext ctx =
                 new AnnotationConfigApplicationContext(U5w1d1praticaApplication.class);
         //abbiamo recuperato dal contesto di Spring un oggetto di tipo Drink
-        Menu menu = ctx.getBean(Menu.class);
-        menu.stampaMenu();
+        MenuConfig menu = ctx.getBean(MenuConfig.class);
+        Menu.stampaMenu(menu.getProdotti());
 
         Ordine o1 = new Ordine();
         o1.setNumOrdine(1);
