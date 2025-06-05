@@ -1,4 +1,4 @@
 package it.epicode.u5w1d1pratica.repository;
 
-public class TavoloRepository {
+public interface TavoloRepository  {
 }

@@ -1,12 +1,14 @@
 package it.epicode.u5w1d1pratica.bean;
 
 import it.epicode.u5w1d1pratica.enumaration.StatoOrdine;
+import jakarta.persistence.Entity;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalTime;
 import java.util.List;
 
+@Entity
 @Data
 @NoArgsConstructor
 public class Ordine {

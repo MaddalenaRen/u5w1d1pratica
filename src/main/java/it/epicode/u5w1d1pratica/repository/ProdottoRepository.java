@@ -1,4 +1,7 @@
 package it.epicode.u5w1d1pratica.repository;
 
-public class ProdottoRepository {
+import it.epicode.u5w1d1pratica.bean.Prodotto;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface ProdottoRepository extends JpaRepository<Prodotto, Long> {
 }

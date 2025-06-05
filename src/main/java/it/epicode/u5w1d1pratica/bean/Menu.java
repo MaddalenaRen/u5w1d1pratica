@@ -4,12 +4,14 @@ import it.epicode.u5w1d1pratica.bean.Drink;
 import it.epicode.u5w1d1pratica.bean.Pizza;
 import it.epicode.u5w1d1pratica.bean.Prodotto;
 import it.epicode.u5w1d1pratica.bean.Topping;
+import jakarta.persistence.Entity;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
+@Entity
 @Data
 @NoArgsConstructor
 @Component
